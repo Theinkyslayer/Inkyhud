@@ -187,14 +187,17 @@ class InkyStatusBar : BaseStatusBar
 
 		DrawImage("STHPAM", (70, 0), DI_SCREEN_LEFT_BOTTOM); //Left side bar
 		DrawImage("STTPRCNT", (97, -13), DI_SCREEN_LEFT_BOTTOM); //Health Percent
-		InkyDrawFullScreenPowerUps(); //Powerup Icons
-		InkyDrawFullScreenBarWeapons();
 		DrawTexture(GetMugShot(5), (122, 0), DI_SCREEN_LEFT_BOTTOM); //Doomguys Beautiful face
 		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (47, -28), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW | DI_SCREEN_LEFT_BOTTOM, fontcolorhp); //OverHeal Number
+
+		InkyDrawFullScreenPowerUps(); //Powerup Icons
+		InkyDrawFullScreenBarWeapons(); //weapon numbers
 
 		DrawImage("Graphics/STARMKEYS.png", (-70, 0), DI_SCREEN_RIGHT_BOTTOM); //Right side bar
 		DrawImage("STTPRCNT", (-91, -13), DI_SCREEN_RIGHT_BOTTOM); //Armor Percent
 		DrawString(mHUDFont, FormatNumber(GetArmorAmount(), 3), (-98, -28), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_RIGHT_BOTTOM, fontcolorarmor); //Armor Number
+
+		InkyDrawFullScreenBarAmmo(); //ammo on all guns
 
 		Inventory ammotype1, ammotype2;
 		[ammotype1, ammotype2] = GetCurrentAmmo();
@@ -263,4 +266,25 @@ class InkyStatusBar : BaseStatusBar
 		DrawImage(CPlayer.HasWeaponsInSlot(6)? "STYSNUM6" : "STGNUM6", (121, 411), DI_ITEM_OFFSETS);
 		DrawImage(CPlayer.HasWeaponsInSlot(7)? "STYSNUM7" : "STGNUM7", (131, 411), DI_ITEM_OFFSETS);
 	}
+
+	protected virtual void InkyDrawFullScreenBarAmmo()
+	{
+		int amt1, maxamt;
+		[amt1, maxamt] = GetAmount("Clip");
+		DrawString(mIndexFont, FormatNumber(amt1, 3), (928, 423), DI_TEXT_ALIGN_RIGHT); //+27 x
+		DrawString(mIndexFont, FormatNumber(maxamt, 3), (955, 423), DI_TEXT_ALIGN_RIGHT);//+6 x
+		
+		[amt1, maxamt] = GetAmount("Shell");
+		DrawString(mIndexFont, FormatNumber(amt1, 3), (928, 429), DI_TEXT_ALIGN_RIGHT);
+		DrawString(mIndexFont, FormatNumber(maxamt, 3), (955, 429), DI_TEXT_ALIGN_RIGHT);
+		
+		[amt1, maxamt] = GetAmount("RocketAmmo");
+		DrawString(mIndexFont, FormatNumber(amt1, 3), (928, 435), DI_TEXT_ALIGN_RIGHT);
+		DrawString(mIndexFont, FormatNumber(maxamt, 3), (955, 435), DI_TEXT_ALIGN_RIGHT);
+		
+		[amt1, maxamt] = GetAmount("Cell");
+		DrawString(mIndexFont, FormatNumber(amt1, 3), (928, 441), DI_TEXT_ALIGN_RIGHT);
+		DrawString(mIndexFont, FormatNumber(maxamt, 3), (955, 441), DI_TEXT_ALIGN_RIGHT);
+	}
+	
 }
