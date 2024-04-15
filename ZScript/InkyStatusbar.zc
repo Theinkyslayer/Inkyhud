@@ -11,6 +11,7 @@ class InkyStatusBar : BaseStatusBar
 		
 	}
 
+
 	override void Init()
 	{
 		Super.Init();
@@ -143,6 +144,8 @@ class InkyStatusBar : BaseStatusBar
 		DrawImage(CPlayer.HasWeaponsInSlot(7)? "STYSNUM7" : "STGNUM7", (135, 182), DI_ITEM_OFFSETS);
 	}
 
+
+
 	protected void InkyDrawFullScreenStuff ()
 	{
 		Vector2 iconbox = (40, 20);
@@ -190,13 +193,13 @@ class InkyStatusBar : BaseStatusBar
 		DrawTexture(GetMugShot(5), (122, 0), DI_SCREEN_LEFT_BOTTOM); //Doomguys Beautiful face
 		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (47, -28), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW | DI_SCREEN_LEFT_BOTTOM, fontcolorhp); //OverHeal Number
 
-		InkyDrawFullScreenPowerUps(); //Powerup Icons
-		InkyDrawFullScreenBarWeapons(); //weapon numbers
 
 		DrawImage("Graphics/STARMKEYS.png", (-70, 0), DI_SCREEN_RIGHT_BOTTOM); //Right side bar
 		DrawImage("STTPRCNT", (-91, -13), DI_SCREEN_RIGHT_BOTTOM); //Armor Percent
 		DrawString(mHUDFont, FormatNumber(GetArmorAmount(), 3), (-98, -28), DI_TEXT_ALIGN_RIGHT|DI_NOSHADOW|DI_SCREEN_RIGHT_BOTTOM, fontcolorarmor); //Armor Number
 
+		InkyDrawFullScreenPowerUps(); //Powerup Icons
+		InkyDrawFullScreenBarWeapons(); //weapon numbers
 		InkyDrawFullScreenBarAmmo(); //ammo on all guns
 
 		Inventory ammotype1, ammotype2;
@@ -259,32 +262,32 @@ class InkyStatusBar : BaseStatusBar
 
 	protected virtual void InkyDrawFullScreenBarWeapons()
 	{
-		DrawImage(CPlayer.HasWeaponsInSlot(2)? "STYSNUM2" : "STGNUM2", (81, 411), DI_ITEM_OFFSETS);
-		DrawImage(CPlayer.HasWeaponsInSlot(3)? "STYSNUM3" : "STGNUM3", (91, 411), DI_ITEM_OFFSETS);
-		DrawImage(CPlayer.HasWeaponsInSlot(4)? "STYSNUM4" : "STGNUM4", (101, 411), DI_ITEM_OFFSETS);
-		DrawImage(CPlayer.HasWeaponsInSlot(5)? "STYSNUM5" : "STGNUM5", (111, 411), DI_ITEM_OFFSETS);
-		DrawImage(CPlayer.HasWeaponsInSlot(6)? "STYSNUM6" : "STGNUM6", (121, 411), DI_ITEM_OFFSETS);
-		DrawImage(CPlayer.HasWeaponsInSlot(7)? "STYSNUM7" : "STGNUM7", (131, 411), DI_ITEM_OFFSETS);
+		DrawImage(CPlayer.HasWeaponsInSlot(2)? "STYSNUM2" : "STGNUM2", (81, -33), DI_SCREEN_LEFT_BOTTOM);
+		DrawImage(CPlayer.HasWeaponsInSlot(3)? "STYSNUM3" : "STGNUM3", (91, -33), DI_SCREEN_LEFT_BOTTOM);
+		DrawImage(CPlayer.HasWeaponsInSlot(4)? "STYSNUM4" : "STGNUM4", (101, -33),DI_SCREEN_LEFT_BOTTOM);
+		DrawImage(CPlayer.HasWeaponsInSlot(5)? "STYSNUM5" : "STGNUM5", (111, -33),DI_SCREEN_LEFT_BOTTOM);
+		DrawImage(CPlayer.HasWeaponsInSlot(6)? "STYSNUM6" : "STGNUM6", (121, -33),DI_SCREEN_LEFT_BOTTOM);
+		DrawImage(CPlayer.HasWeaponsInSlot(7)? "STYSNUM7" : "STGNUM7", (131, -33),DI_SCREEN_LEFT_BOTTOM);
 	}
 
 	protected virtual void InkyDrawFullScreenBarAmmo()
 	{
 		int amt1, maxamt;
 		[amt1, maxamt] = GetAmount("Clip");
-		DrawString(mIndexFont, FormatNumber(amt1, 3), (928, 423), DI_TEXT_ALIGN_RIGHT); //+27 x
-		DrawString(mIndexFont, FormatNumber(maxamt, 3), (955, 423), DI_TEXT_ALIGN_RIGHT);//+6 x
+		DrawString(mIndexFont, FormatNumber(amt1, 3), (-728, -223), DI_TEXT_ALIGN_RIGHT | DI_SCREEN_RIGHT_BOTTOM); //+27 x
+		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-701, -223), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);//+6 y
 		
 		[amt1, maxamt] = GetAmount("Shell");
-		DrawString(mIndexFont, FormatNumber(amt1, 3), (928, 429), DI_TEXT_ALIGN_RIGHT);
-		DrawString(mIndexFont, FormatNumber(maxamt, 3), (955, 429), DI_TEXT_ALIGN_RIGHT);
+		DrawString(mIndexFont, FormatNumber(amt1, 3), (-728, -229), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
+		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-701, -229), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
 		
 		[amt1, maxamt] = GetAmount("RocketAmmo");
-		DrawString(mIndexFont, FormatNumber(amt1, 3), (928, 435), DI_TEXT_ALIGN_RIGHT);
-		DrawString(mIndexFont, FormatNumber(maxamt, 3), (955, 435), DI_TEXT_ALIGN_RIGHT);
+		DrawString(mIndexFont, FormatNumber(amt1, 3), (-728, -235), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
+		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-701, -235), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
 		
 		[amt1, maxamt] = GetAmount("Cell");
-		DrawString(mIndexFont, FormatNumber(amt1, 3), (928, 441), DI_TEXT_ALIGN_RIGHT);
-		DrawString(mIndexFont, FormatNumber(maxamt, 3), (955, 441), DI_TEXT_ALIGN_RIGHT);
+		DrawString(mIndexFont, FormatNumber(amt1, 3), (-728, -241), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
+		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-701, -241), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
 	}
 	
 }
