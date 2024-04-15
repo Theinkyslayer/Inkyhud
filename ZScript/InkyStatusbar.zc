@@ -188,6 +188,7 @@ class InkyStatusBar : BaseStatusBar
 		DrawImage("STHPAM", (70, 0), DI_SCREEN_LEFT_BOTTOM); //Left side bar
 		DrawImage("STTPRCNT", (97, -13), DI_SCREEN_LEFT_BOTTOM); //Health Percent
 		InkyDrawFullScreenPowerUps(); //Powerup Icons
+		InkyDrawFullScreenBarWeapons();
 		DrawTexture(GetMugShot(5), (122, 0), DI_SCREEN_LEFT_BOTTOM); //Doomguys Beautiful face
 		DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (47, -28), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW | DI_SCREEN_LEFT_BOTTOM, fontcolorhp); //OverHeal Number
 
@@ -252,4 +253,14 @@ class InkyStatusBar : BaseStatusBar
 		if (bers)
 			DrawImage("Graphics/Icons/BerserkIcon.png", (135, -1));
     }
+
+	protected virtual void InkyDrawFullScreenBarWeapons()
+	{
+		DrawImage(CPlayer.HasWeaponsInSlot(2)? "STYSNUM2" : "STGNUM2", (81, 411), DI_ITEM_OFFSETS);
+		DrawImage(CPlayer.HasWeaponsInSlot(3)? "STYSNUM3" : "STGNUM3", (91, 411), DI_ITEM_OFFSETS);
+		DrawImage(CPlayer.HasWeaponsInSlot(4)? "STYSNUM4" : "STGNUM4", (101, 411), DI_ITEM_OFFSETS);
+		DrawImage(CPlayer.HasWeaponsInSlot(5)? "STYSNUM5" : "STGNUM5", (111, 411), DI_ITEM_OFFSETS);
+		DrawImage(CPlayer.HasWeaponsInSlot(6)? "STYSNUM6" : "STGNUM6", (121, 411), DI_ITEM_OFFSETS);
+		DrawImage(CPlayer.HasWeaponsInSlot(7)? "STYSNUM7" : "STGNUM7", (131, 411), DI_ITEM_OFFSETS);
+	}
 }
