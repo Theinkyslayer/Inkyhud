@@ -1,5 +1,5 @@
 # InkyHud
- A (not quite Universal yet) GZDoom Hud 
+ A Super Duper Awesome GZDoom Hud 
 # Compatibility
  Only the Doom IWads (Doom1,Ultimate,Doom2,Final Doom) currently.
 
