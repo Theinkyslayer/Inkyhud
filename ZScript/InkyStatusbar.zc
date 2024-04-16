@@ -273,21 +273,21 @@ class InkyStatusBar : BaseStatusBar
 	protected virtual void InkyDrawFullScreenBarAmmo()
 	{
 		int amt1, maxamt;
-		[amt1, maxamt] = GetAmount("Clip");
-		DrawString(mIndexFont, FormatNumber(amt1, 3), (-728, -223), DI_TEXT_ALIGN_RIGHT | DI_SCREEN_RIGHT_BOTTOM); //+27 x
-		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-701, -223), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);//+6 y
+		[amt1, maxamt] = GetAmount("Clip"); //ITS A MAGAZINE!!!
+		DrawString(mIndexFont, FormatNumber(amt1, 3), (-31, -27), DI_TEXT_ALIGN_RIGHT | DI_SCREEN_RIGHT_BOTTOM); //+27 x
+		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-4, -27), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);//+6 y
 		
 		[amt1, maxamt] = GetAmount("Shell");
-		DrawString(mIndexFont, FormatNumber(amt1, 3), (-728, -229), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
-		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-701, -229), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
+		DrawString(mIndexFont, FormatNumber(amt1, 3), (-31, -21), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
+		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-4, -21), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
 		
 		[amt1, maxamt] = GetAmount("RocketAmmo");
-		DrawString(mIndexFont, FormatNumber(amt1, 3), (-728, -235), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
-		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-701, -235), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
+		DrawString(mIndexFont, FormatNumber(amt1, 3), (-31, -15), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
+		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-4, -15), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
 		
 		[amt1, maxamt] = GetAmount("Cell");
-		DrawString(mIndexFont, FormatNumber(amt1, 3), (-728, -241), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
-		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-701, -241), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
+		DrawString(mIndexFont, FormatNumber(amt1, 3), (-31, -9), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
+		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-4, -9), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
 	}
 	
 }
