@@ -201,6 +201,7 @@ class InkyStatusBar : BaseStatusBar
 		InkyDrawFullScreenPowerUps(); //Powerup Icons
 		InkyDrawFullScreenBarWeapons(); //weapon numbers
 		InkyDrawFullScreenBarAmmo(); //ammo on all guns
+		InkyDrawFullScreenLevelStats(); //level stats
 
 		Inventory ammotype1, ammotype2;
 		[ammotype1, ammotype2] = GetCurrentAmmo();
@@ -288,6 +289,18 @@ class InkyStatusBar : BaseStatusBar
 		[amt1, maxamt] = GetAmount("Cell");
 		DrawString(mIndexFont, FormatNumber(amt1, 3), (-31, -9), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
 		DrawString(mIndexFont, FormatNumber(maxamt, 3), (-4, -9), DI_TEXT_ALIGN_RIGHT| DI_SCREEN_RIGHT_BOTTOM);
+	}
+
+	protected virtual void InkyDrawFullScreenLevelStats()
+	{
+		//Kills
+		int pcnt = Level.total_monsters ? 100 * Level.killed_monsters / Level.total_monsters : 100;
+		int amt = multiplayer ? CPlayer.killcount : pcnt;
+		int kils = CPlayer.killcount;
+		DrawString(mIndexFont, FormatNumber(kils, 3), (24,-60), DI_TEXT_ALIGN_RIGHT | DI_SCREEN_LEFT_BOTTOM);
+		DrawString(mIndexFont, FormatNumber(amt, 3), (37,-60), DI_TEXT_ALIGN_RIGHT | DI_SCREEN_LEFT_BOTTOM);
+		DrawImage("Graphics/Icons/KillsIcon.png", (7,-52), DI_SCREEN_LEFT_BOTTOM, scale: (0.8, 0.8));
+		DrawImage("Graphics/STYSPRCNT.png", (40,-55), DI_SCREEN_LEFT_BOTTOM);
 	}
 	
 }
