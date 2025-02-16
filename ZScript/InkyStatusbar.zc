@@ -201,7 +201,7 @@ class InkyStatusBar : BaseStatusBar
 		InkyDrawFullScreenPowerUps(); //Powerup Icons
 		InkyDrawFullScreenBarWeapons(); //weapon numbers
 		InkyDrawFullScreenBarAmmo(); //ammo on all guns
-		InkyDrawFullScreenLevelStats(); //level stats
+		//InkyDrawFullScreenLevelStats(); //level stats ////REMOVED FOR NOW////
 
 		Inventory ammotype1, ammotype2;
 		[ammotype1, ammotype2] = GetCurrentAmmo();
